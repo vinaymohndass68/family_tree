@@ -1,0 +1,5384 @@
+
+    <html>
+    <head>
+        <style>
+	    .highlight {    
+		background-color: yellow;
+		}
+
+            .node {
+                position: relative;
+                margin-left: 20px;
+            }
+            .node-content {
+                cursor: pointer;
+                padding: 5px;
+                border: 1px solid #ccc;
+                display: inline-block;
+            }
+            .node-content:hover {
+                background-color: #f0f0f0;
+            }
+            .children {
+                margin-left: 20px;
+                border-left: 2px solid #aaa;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+        <script>
+            function displayParentAndChildren(element) {
+                // Display parent nodes
+                let currentNode = element.parentElement;
+                while (currentNode) {
+                    currentNode.style.display = "block";
+                    currentNode = currentNode.parentElement.closest('.node');
+                }
+
+                // Display direct children
+                let childrenDiv = element.nextElementSibling;
+                displayChildren(childrenDiv);
+            }
+
+            function displayChildren(childrenDiv) {
+                if (childrenDiv) {
+                    childrenDiv.style.display = "block";
+                    let childNodes = childrenDiv.querySelectorAll('.node');
+                    childNodes.forEach(node => {
+                        let nodeContent = node.querySelector('.node-content');
+                        let childDiv = node.querySelector('.children');
+                        if (childDiv) {
+                            childDiv.style.display = "none";
+                        }
+                    });
+                }
+            }
+
+            function expandAll() {
+                var childrenDivs = document.querySelectorAll('.children');
+                childrenDivs.forEach(div => div.style.display = "block");
+            }
+            function collapseAll() {
+                var childrenDivs = document.querySelectorAll('.children');
+                childrenDivs.forEach(div => div.style.display = "none");
+            }
+	
+	function searchNode() {
+        let searchText = document.getElementById("search-input").value.toLowerCase();
+        let allNodes = document.querySelectorAll('.node-content');
+        
+        allNodes.forEach(node => {
+            node.classList.remove('highlight');  // Remove previous highlight
+            let nodeText = node.innerText.toLowerCase();
+            if (nodeText.includes(searchText)) {
+                node.classList.add('highlight');  // Highlight matching nodes
+                displayParentAndChildren(node);   // Show parent and child nodes
+            }
+        });
+    }
+
+    function displayParentAndChildren(element) {
+        // Display parent nodes
+        let currentNode = element.parentElement;
+        while (currentNode) {
+            currentNode.style.display = "block";
+            currentNode = currentNode.parentElement.closest('.node');
+        }
+
+        // Display direct children
+        let childrenDiv = element.nextElementSibling;
+        displayChildren(childrenDiv);
+    }
+
+    function displayChildren(childrenDiv) {
+        if (childrenDiv) {
+            childrenDiv.style.display = "block";
+            let childNodes = childrenDiv.querySelectorAll('.node');
+            childNodes.forEach(node => {
+                let nodeContent = node.querySelector('.node-content');
+                let childDiv = node.querySelector('.children');
+                if (childDiv) {
+                    childDiv.style.display = "none";
+                }
+            });
+        }
+    }
+        </script>
+
+    </head>
+    <body>
+        <button onclick="expandAll()">Expand All</button>
+        <button onclick="collapseAll()">Collapse All</button>
+        <div class="mindmap">
+    <input type="text" id="search-input" placeholder="Search node..." onkeyup="searchNode()" />
+       
+    <div class="node level-0" data-level="0">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 0: </span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-1" data-level="1">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 1: FAMILY TREE</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-2" data-level="2">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 2: Ratna Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-3" data-level="3">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 3: Nar Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-4" data-level="4">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 4: Brahma Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-5" data-level="5">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 5: Rajdev Raut</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-6" data-level="6">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 6: Lakhardev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-6" data-level="6">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 6: Dheereshwar Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-7" data-level="7">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 7: Daman/Dalan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Pakhu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Lakhu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Beeru(Madhouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Heeru</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Bisai</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Kashinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Bhavnath(Ranve)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Jivnath(Darima)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Shivnath(Keoti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Roopnath(Keoti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Gopinath(Vishwanathpatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Yadunath(Vishwanathpatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Lakshminath(Kakrour)*</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Beeru(Madhouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Bhavaini</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-7" data-level="7">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 7: Govind</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Shankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Thegh/Megh alias Nare</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Manikar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Harikar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Madhusudan(Ahil)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Shriram(Barheta)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Balbhadra(Taralahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Amritkar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Harikeshav(Kahua)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Uddhav(Bahadurpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Paltu(Ratnapura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Gangadhar(Baigani)/ 1/2</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Haridev(Galam)/ 1/2</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Kamdev(Kherajpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Lakshminath(Rampatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-14" data-level="14">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 14: Dayal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Ghanaram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Dambharsingh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Roopnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Dulahram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Shyamlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Rajkishore (Madhepura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Badrinarayan/Radhakrishna</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabhat Kumar Choudhary</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Rajdev(Bhacchi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Jasaai</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Narkar(Sakuri)*</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-7" data-level="7">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 7: Dubai/Dual</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Ganpati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Pashupati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Bate/Umapati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Teki</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Abhinand(Murtuzapur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Vasudev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Lakshminath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Gopinth/Gopali(Dakhram)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Bhikhai(Dherukh)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Anathbandhu(Kakrour)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Shyam(Bahera)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Bhikhai</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Mane(Habibhowar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Vishnupati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-10" data-level="10">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 10: Bharat</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-11" data-level="11">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 11: Shyam</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-12" data-level="12">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 12: Ramchandra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Shrikrishna</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-14" data-level="14">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 14: Chilka</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Balakram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Garibnath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Dular</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Mohar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Anantbihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Haridutt/Doman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Kunjilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Heeta(Kayasth Kabai)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Parasmani</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Bhaiji</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Rambihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Puhuplal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jalpadutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Chunnilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Nawalkishore</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Hridaynarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Shravankumar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Suryanarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vijay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Amit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vimal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Jugalkishore</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Prabhunarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Uday</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Manoj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lekhnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Awadhesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Hemant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rakesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kulanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Dhirendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Mahanthilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Tilakram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Kalikadutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jamahir</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Ganeshdutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jayjayram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Budhilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Maheshdutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Mannulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Sirilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Brijbihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Jagnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Satish</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Rupnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Subodh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Shardanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabhas</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Baburam</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Amarsingh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Mangladutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Bachha(Phent)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Ranjitlal(Phent)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Muratilal(Phent)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Brijbihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Rasbihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Babuchand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Krishnabihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Baidyanath/Gulabsharan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Lali</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Chunnilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Tulsidutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Bhikhari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Manphool</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Somdutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Suwnanshlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Pushplal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Nathuni</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Naresh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Hemant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Sampatilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Umesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Hemnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Janakiraman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Bhaagirath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Roushan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Uttimlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Suresh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Awadhesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Madan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Hira</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Guddu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pappu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Pramod/Lambodar(?)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sanjay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Manoj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Premlal/Aliklal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Bachhu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Baali</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Manasaram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Dayaram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Bhaiyaram/Baidyanath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Bachhilai</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Bhola</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Bala</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Chunnilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Lakshmidutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Jeevach</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Jagannath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Theethar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Santlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Mahagulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Cheetan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kapileshwar(Barantpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Shyamsundar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Hitnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Jatashankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pankaj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajkumar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: (Vaimatra)Shrinarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Arunshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: (Vaimatra)Govindnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Shrawankumar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sanjiv</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajiv</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Rameshkumar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Teknath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jhummaklal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Newalal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Shivnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Satishshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pawanranjan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Praveenranjan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Premlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Genalal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Fekanlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Balgovind</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Shubhnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Udayshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Brajesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajeshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rupam</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Devnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Gourishankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Kanhaiya</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Tripurari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ajit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ranjit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Umashankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rameshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Kameshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Chandreshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Hemshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Amit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Praveen</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Naveen</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Harinarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-14" data-level="14">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 14: Khedan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Murlidhar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Hiraram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Gokul</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Premnath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Joori</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Chaandan(Chanan)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Chetnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Chandidutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jaijairam</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Raghunandan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Jaynarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Shyamshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ravindra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Yogendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Dineshshankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Balkrishna</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Sureshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mohan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vimal/Nifikra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ashok</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Arvind</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Nirmal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Kapileshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Tejnarayan/Bhairav</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Subhash</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Santosh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mahendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vikram</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Revatiraman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Bindeshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Vishwanath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Devnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Rajeshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Amrendra/Lal Babu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Shailendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: NA</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Ramchandra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Surendra/Pandit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Keshav</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Shivji</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Hitendra/Ganesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prakash</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prafull</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Babuanji(Anhara)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Naresh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Suresh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Banshilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Ramlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Girivardhari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lakhanlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Jitendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Shankar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Birendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Teknarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ratna</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Shyambihari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Indrakant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: NA</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Sabhapati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Guneshwar/Sundar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Yogendra/Buchhi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Naveen</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Suman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Tejendra/Tunni</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: NA</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Bindu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sanjay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Nannulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Govindlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Nandkishore</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Vishweswar/Bambholi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Arun/Kanhaiya</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Manoj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Shailesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Pawan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabhat</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Dileep</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rajkumar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Krishna/Kari</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Atulsourabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vipulsourabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Tarakant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Satyendra/Mukti</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Devendra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Neeraj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Hemchandra/Shakti</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: NA</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Raman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Bhuwan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Shrikant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: (Vaimatra)Radhakant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: (Vaimatra)Chandrakant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sanjay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Abhay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Suryanarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Umakant</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Vinod</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Maneesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prasoon</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Vishnu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Shankarlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Ugranarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Thakursingh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Apooch</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Sundarpur)Yadunandan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Chandreshwar=Lakshmiwati(Balour)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kamo=Govindnarayan(Sankourth)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Ganeshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Kanya=    (Gurmha)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Kanya=    (Simra/Inaruwa)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Sundarpur)Harinandan=Putriwati(Jounki)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Bhuwaneshwar=Beri*/Phoodiwati(Balour)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Gokulakant/Gopalji=Bindeshwari/Ratan(Simra)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Praveen/Bhullar=Renu/Ragini(Lakshmipur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Kalpana</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Abhishek/Phool Babu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Amit/Son Babu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabha=Krishnanand(Belarahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Arun/Bucchan=Sheela/Kanchan(Anhara)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Shikha</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Abhay/Mitthu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Anees</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prafull/Fudan=Pushpa/Basant(Kayasth Kabai)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Sumeet</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Vineet</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Niraj(Bittu)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pawan=Renu/Madhu(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Mona</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Sourabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pawitra/Pappu=                                 (Lakshmipur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ajay/Pintu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sati=Ugranarayan(Bharwara)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sashi=Ganpati(Bhachhi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Babuni</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Anandi/Khushi=Sukhdevkrishna(Keoti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Manikant=Kanaklata/Kishori(Imadpatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Nandini/Nanni=Shilendra(Kako)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ranjana=Prakash(Rampatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Archana=Somnath(Meghoul)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Jyoti=Suman(Lakshmipur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Abhilash</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Anju</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Veena=Dineshnarayan(Beri)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Nageshwar=Bhaleshwari(Meghoul)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Usha=Rameshwar(Sankourth)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Shobhakant=Sukanya(Balat)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Arun</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Gyan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Indu=Sushil(Ratupar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pradeep=Sangita/Dulhin(Bhadhar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Asheesh/Asoo</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Ayushi/Deepti</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sandeep</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mohitkant/Indrakant=Droupadi(Hanumannagar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Asha=Madhav(Bishath)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prakash/Lallan=Savita/Guddo/Aparna(Bhadhar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Ruchi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Prachi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabodh/Sadan=Sulochana/Arati(Barheta)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Surabhi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Sashank Shubham/Dhallu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Simran</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prem=Usha/Aradhana(Olipur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Anuj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prahlad/Naveen=Poonam/Archana(Bishath)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-24" data-level="24">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 24: </span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-24" data-level="24">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 24: </span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-24" data-level="24">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 24: </span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Anirudhkant=Sharada(Anhara)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Anita/Babli=Devendra(Mehsari)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prabhat/Munnu=Annapurna/Rupam</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Rajgourav/Prince</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prasoon(Tunnu)=</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Maneesh/Chotu=                                          (Biroul)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kumudini=Sitaram(Harouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Vimala=Govindnarayan(Beri)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lakshmikant=Anju/Nilam(Simra)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vikas/Minku</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pooja</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vishal/Tinku</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mahakant=Gowri/Nutan(Aurahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vivek/Rinku</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Roushan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Rahul</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Radhavati=Sureshwar(Belarahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lambodar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Kalyanwati=Ramesh(Bhacchi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Khookha=Baidyanath(Kherajpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Maheshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Yogeshwar/Shrikishan=Tara(Tharhi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lalita</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Satyanarain=Savita/Lal(Bhadhar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sumanmohan=Rekha/Munni/Shivani(Shivipatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Shubhankar Suman/Subbu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Sukriti Shreya/Chikki</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vandana/Manna=Mihirranjan(Narayanpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vinaymohan/Vinoo=Madhu/Lily/Sonali(Keoti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Samiksha Shreya/Priya</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Supriti Shreya/Preeti</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kusum=Anjanikumar(Kamrouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kala=Rajeshwarnath(Kahua)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Nirmala=Narayanballabh(Phent)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Udaykumar=Premlata/Meera(Bhadhar)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Prerna/Panna</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Taruna/Tannu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sheela=Sambhukant(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Bideshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Sundarpur)Kanya-Imadpatti</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Khadgavallabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Jiveshwar(Mukev)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Sundarpur)Kanya-</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Sundarpur)Ayodhya=    (Ujan)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Rameshwar=Durga(Manapatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Baidyanath=Sandhya(Balat)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Buchhi=Krishnabihari(Balat)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kashinath/Bholi</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kedarnath=Sukanya/Suhagin(Imadpatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Poonam=                                                 (Kamrouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Mihir/Raju=Chanchala/                            (Bhacchi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Yashaschandra/Yash</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Chanchal/Rajan=Pinky                                  (Aasi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Indranath/Randhir=Purnima/Saroj(Loufa)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Vibha=                                                     (Meghoul)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Abha=                                                 (Murtuzapur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Nibha=                                                        (Balour)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Anand=                                                     (Bhacchi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Arvind=</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Pashupatinath/Kumar=Manorama/Kumud(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Reeta=                                                     (Mehsari)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Anita=</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Pankaj=                                                      (Balour)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Aditya/Pinku</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kunti=Dayanand(Bishath)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Gangeshwar=Ganga(Vijay)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sambhunath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Jagannath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Ugranath/Bangali=Veena/Rani(Bishath)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Umesh/Sanju=Ranjana(Lakhanpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-23" data-level="23">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 23: Ayushi/Bhavya</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Subodh=Nisha(Narayanpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Suniti/Babbi=                                               (Phent)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sudheer</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Sujit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Subhadra</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Mukteshwar=Godavari(Belarahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kanti=Harimohan(Kamrouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Malti=Bharat(Dherukh)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Damyanti/Munni=Neelkant(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: (Loufa)Awadhbihari=   (Olipur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Jiwachi=  (Kamrouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Baba=Kewalkrishna(Kamrouli)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Yoganand/Roona=Saraswati(Belarahi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Gourishankar/Prabhuji=Lakshmi(Gurmha)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: Ajit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Anjula=Sunilkumar(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Ranjula=Govindnarayan(Imadpatti)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sanjula=                      (Ojhoul)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Devshankar/Narayanji=                    (Narayanpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Vedanand/Raja=Rameshwari(Gurmha)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Manjula=Vidyanand(Simra)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Shivshankar/Sanwaliya=Gyano(Sankourth)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-22" data-level="22">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 22: na</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Suman=Vijayendra(Kanakpura)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kamala=                     (Beri)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Manik</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Gangadutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Ramnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Kalikadutt/Khushilal(Jagatpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Rajkumar(Jagatpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Nawabsingh(Jagatpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Foujdarsingh(Jagatpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Reetlal(Jagatpur)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: (Vaimatra) Chatrapati (Ghoghsarwasi)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Poonalal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Choalal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Vishwanath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Santoshmohan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Kashinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Lalit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Anil</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sunil</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Ganesh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Chandan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Nandan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Dipak</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Suresh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Amit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Bhaagirath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Nemsingh/Adinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Keertilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Jamahirlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Achambhitlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Noubatilal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Manohaarlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Narayanvallabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Chaturanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Manoj</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sujit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sanjit</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Achyutanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Dayanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Praveen</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Parmanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Krishnanand</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Jayvallabh/Lakshman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Muktinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Yuktinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Vijay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Vinay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Anjani</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Raghunath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Prafull</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Atul</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Amul</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mridul</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Chandranath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Ashok</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Kishor</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Dileep</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Ugranath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sambhu</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Sashinath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Sanjay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-21" data-level="21">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 21: Mrityunjay</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Panchulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Ramvallabh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Tetar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Ajablal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: Kumarsingh</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Khadagpati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Radhe</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: (Vaimatra)Bhailal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: (Vaimatra)Sundarlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Kamladatt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Gopal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Bhagwanji</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Anathnath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Shyamlal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-13" data-level="13">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 13: Chahatrapati</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-14" data-level="14">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 14: Veereshwar(Bhojparoul Simri)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-15" data-level="15">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 15: `Hareeshwar</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-16" data-level="16">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 16: Doman</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-17" data-level="17">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 17: Narayandutt</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Chakkan/Baburaiya</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Nannulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Lilanath</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-20" data-level="20">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 20: Lekhnarayan</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-19" data-level="19">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 19: Nathhulal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-18" data-level="18">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 18: Babuelal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Jage</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Kalyan(Chiksari)*</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-9" data-level="9">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 9: Balbhadra(Chiksari)*</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Cheetu(Paghari)</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-8" data-level="8">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 8: Mrigpati(Dethua)*</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="node level-6" data-level="6">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 6: Prithvidhar Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-6" data-level="6">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 6: Murtidhar Dev</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+    <div class="node level-6" data-level="6">
+        <div class="node-content" onclick="displayParentAndChildren(this)">
+            <span>Level 6: Phoohal /Gopal</span>
+        </div>
+        <div class="children" style="display:none;">
+            
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
+    </body>
+    </html>
+    
